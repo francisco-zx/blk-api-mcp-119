@@ -1,5 +1,5 @@
 {
-  "name": "mcp-server-1751127248269",
+  "name": "blk-api-mcp",
   "version": "1.0.0",
   "description": "MCP Server generated from OpenAPI specification",
   "main": "index.js",
