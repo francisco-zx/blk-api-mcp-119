@@ -242,8 +242,8 @@ This repository contains a **Model Context Protocol (MCP) server** that allows A
 
 ### 1. Clone and Install
 ```bash
-git clone https://github.com/francisco-zx/mcp-server-1751127248269
-cd blk-api-mcp-987
+git clone https://github.com/francisco-zx/blk-api-mcp-987
+cd blk-api-mcp-332
 pnpm install
 ```
 
@@ -275,7 +275,7 @@ Your MCP server will be available at `http://localhost:3000/api/mcp`
 ## 🌐 Deploy to Production
 
 ### Deploy to Vercel (Recommended)
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ffrancisco-zx%2Fmcp-server-1751127248269&env=OPENAI_API_KEY,NEXTAUTH_SECRET&envDescription=Required%20environment%20variables%20for%20MCP%20server&envLink=https://v0-oas2mcp.vercel.app/docs/environment-variables&project-name=blk-api-mcp-987&repository-name=blk-api-mcp-987)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ffrancisco-zx%2Fblk-api-mcp-987&env=OPENAI_API_KEY,NEXTAUTH_SECRET&envDescription=Required%20environment%20variables%20for%20MCP%20server&envLink=https://v0-oas2mcp.vercel.app/docs/environment-variables&project-name=blk-api-mcp-332&repository-name=blk-api-mcp-332)
 
 The deploy button above will:
 - 🔗 Connect your GitHub repository to Vercel
