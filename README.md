@@ -1,28 +1,250 @@
-# Run an MCP Server on Vercel
+# blk api
 
-## Usage
+A Model Context Protocol server generated from OpenAPI specification.
 
-Update `api/server.ts` with your tools, prompts, and resources following the [MCP TypeScript SDK documentation](https://github.com/modelcontextprotocol/typescript-sdk/tree/main?tab=readme-ov-file#server).
+## Available Tools
 
-[There is also a Next.js version of this template](https://vercel.com/templates/next.js/model-context-protocol-mcp-with-next-js)
+- **/api/v1/register** (POST): REGISTER
+- **/api/v1/login** (POST): LOGIN
+- **/api/v1/logout** (GET): LOGOUT
+- **/api/v1/user** (GET): GET USER DATA
+- **/api/v1/user** (PATCH): PATCH USER
+- **/api/v1/user** (DELETE): DELETE USER
+- **/api/v1/user/rating** (GET): GET USER RATING
+- **/api/v1/user/rating** (POST): CREATE USER RATING
+- **/api/v1/user/rating/{userId}** (GET): GET USER RATING LIST
+- **/api/v1/user/top** (GET): TOP USERS
+- **/api/v1/user/profile** (PUT): EDIT USER
+- **/api/v1/user/preferences** (GET): GET USER PREFERENCES
+- **/api/v1/user/preferences** (PUT): EDIT USER PREFERENCES
+- **/api/v1/user/sellers** (GET): GET SELLER USER
+- **/api/v1/user/personal-data** (PUT): EDIT USER PERSONAL DATA
+- **/api/v1/user/follow** (POST): FOLLOW USER
+- **/api/v1/user/change-password** (POST): CHANGE PASSWORD
+- **/api/v1/user/recover-password/start** (POST): VALIDATE EMAIL AVAILABILITY FOR RECOVER PASSWORD
+- **/api/v1/user/recover-password/send** (POST): SEND EMAIL VALIDATION CODE FOR RECOVER
+- **/api/v1/user/password** (GET): USER HAS PASSWORD
+- **/api/v1/user/create-new-password** (POST): CREATE NEW PASSWORD FOR OAUTH USER
+- **/api/v1/user/create-password** (POST): SET NEW PASSWORD (RECOVER)
+- **/api/v1/user/followed** (GET): GET USER FOLLOWED
+- **/api/v1/user/followers** (GET): GET USER FOLLOWERS
+- **/api/v1/user/followers/count** (GET): GET USER FOLLOWERS COUNT
+- **/api/v1/user/availability/username** (POST): VALIDATE USERNAME AVAILABILITY
+- **/api/v1/user/availability/email** (POST): VALIDATE EMAIL AVAILABILITY
+- **/api/v1/user/availability/phone** (POST): VALIDATE PHONE AVAILABILITY
+- **/api/v1/user/email/send** (POST): SEND EMAIL VALIDATION CODE
+- **/api/v1/user/email/verify** (POST): VERIFY EMAIL CODE
+- **/api/v1/user/balance** (GET): GET USER BALANCE
+- **/api/v1/user/movements** (GET): GET USER MOVEMENTS
+- **/api/v1/user/movements** (PUT): ADD USER MOVEMENTS
+- **/api/v1/user/report** (POST): REPORT USER
+- **/api/v1/user/{username}** (GET): GET USER BY USERNAME
+- **/api/v1/user/{username}/shop** (POST): SHOP
+- **/api/v1/user/{username}/shop/paused** (GET): GET USER PAUSED PRODUCTS
+- **/api/v1/user/{username}/likes** (GET): LIKES
+- **/api/v1/user/block** (POST): BLOCK USER
+- **/api/v1/user/unblock** (POST): UNBLOCK USER
+- **/api/v1/user/blocked** (GET): GET BLOCKED USERS
+- **/api/v1/user/blocked/{userId}** (GET): IS BLOCKED BY USER
+- **/api/v1/user/deleteFull** (POST): DELETE FULL USER
+- **/api/v1/user/comission** (GET): GET CURRENT USER COMISSION
+- **/api/v1/user/flex** (PUT): UPDATE PICKUP SHIPMENT
+- **/api/v1/analytics/demography** (GET): GET USER DEMOGRAPHY
+- **/api/v1/offers/{as}** (GET): GET OFFERS
+- **/api/v1/offer/{as}/{offer}** (GET): GET OFFER
+- **/api/v1/offer/create** (POST): CREATE OFFER
+- **/api/v1/offer/update** (PUT): UPDATE OFFER
+- **/api/v1/product/search** (POST): SEARCH PRODUCTS
+- **/api/v1/product** (POST): CREATE PRODUCT
+- **/api/v1/product/featured** (GET): SEARCH FEATURED PRODUCTS
+- **/api/v1/product/delete0PriceVariants** (GET): FIX 0 PRICE VARIANTS
+- **/api/v1/product/addrandom** (POST): ADD RANDOM NUMBER
+- **/api/v1/product/disable-gift-cards** (POST): DISABLE GIFT CARDS PRODUCTS
+- **/api/v1/product/{id}** (GET): GET PRODUCT BY ID
+- **/api/v1/product/{id}** (PUT): UPDATE PRODUCT
+- **/api/v1/product/{id}** (DELETE): DELETE PRODUCT
+- **/api/v1/product/{id}/related** (GET): GET RELATED PRODUCTS
+- **/api/v1/product/{id}/related-typesense** (POST): GET RELATED PRODUCTS TYPESENSE
+- **/api/v1/product/{id}/status** (PUT): SET PRODUCT STATUS
+- **/api/v1/product/{id}/discount** (PATCH): SET PRODUCT VARIANT STATUS
+- **/api/v1/product/feature** (POST): FEATURE PRODUCT
+- **/api/v1/product/setGender** (POST): SET GENDER TO ALL USER PRODUCTS
+- **/api/v1/product/pauseProductsWithoutImages** (POST): PAUSE PRODUCTS WITHOUT IMAGES
+- **/api/v1/product/updateUSDProductPrices** (POST): UPDATE USD PRODUCT PRICES
+- **/api/v1/product/deleteUserPausedProducts** (POST): DELETE USER PAUSED PRODUCTS
+- **/api/v1/product/fixDiscounts** (POST): FIX DISCOUNTS
+- **/api/v1/product/generateAllSlugs** (POST): GENERATE ALL SLUGS
+- **/api/v1/product/fixRepeatedSlugs** (POST): FIX REPEATED SLUGS
+- **/api/v1/product/metaQuery** (POST): META QUERY
+- **/api/v1/product/brand/all** (GET): GET ALL BRANDS
+- **/api/v1/product/brand/{id}** (GET): GET BRAND BY ID
+- **/api/v1/product/brand/{id}** (DELETE): DELETE BRAND
+- **/api/v1/product/brand/{id}** (PUT): EDIT BRAND
+- **/api/v1/product/brand/name/{term}** (GET): GET BRANDS BY NAME
+- **/api/v1/product/brand** (POST): CREATE BRAND
+- **/api/v1/product/color/all** (GET): GET ALL COLORS
+- **/api/v1/product/color/{name}** (GET): GET COLOR BY NAME
+- **/api/v1/product/color** (POST): CREATE COLOR
+- **/api/v1/product/color/{id}** (DELETE): DELETE COLOR
+- **/api/v1/product/color/{id}** (PUT): EDIT COLOR
+- **/api/v1/product/gender/all** (GET): GET ALL GENDERS
+- **/api/v1/product/gender/update** (POST): UPDATE PRODUCT GENDER
+- **/api/v1/product/size/by-attributes** (POST): GET SIZES BY CATEGORY & GENDER
+- **/api/v1/product/size/by-categoryname** (POST): GET SIZES BY CATEGORY NAME & GENDER
+- **/api/v1/product/size/all** (GET): GET ALL SIZES
+- **/api/v1/product/size/{name}** (GET): GET SIZE BY NAME
+- **/api/v1/product/size/{id}** (DELETE): DELETE SIZE
+- **/api/v1/product/size/{id}** (PUT): EDIT SIZE
+- **/api/v1/product/size** (POST): CREATE SIZE
+- **/api/v1/product/state/all** (GET): GET STATES
+- **/api/v1/product/state/{name}** (GET): GET STATE BY NAME
+- **/api/v1/product/style/all** (GET): GET STYLES
+- **/api/v1/product/style/featured** (GET): GET FEATURED STYLES
+- **/api/v1/product/style/{id}** (GET): GET STYLE BY ID
+- **/api/v1/product/style/{id}** (DELETE): DELETE STYLES
+- **/api/v1/product/style/{id}** (PUT): EDIT STYLES
+- **/api/v1/product/style** (POST): CREATE STYLES
+- **/api/v1/product/{id}/like** (GET): GET PRODUCT LIKES
+- **/api/v1/product/{id}/like** (DELETE): DELETE LIKE
+- **/api/v1/product/like** (POST): LIKE PRODUCT
+- **/api/v1/product/like/{id}** (GET): GET USER LIKED PRODUCTS
+- **/api/v1/product/{id}/comment** (GET): GET PRODUCT COMMENTS
+- **/api/v1/product/{id}/comment** (POST): CREATE COMMENT TO PRODUCT
+- **/api/v1/product/{id}/comment** (DELETE): DELETE COMMENT
+- **/api/v1/comment/{id}** (POST): REPLY TO COMMENT
+- **/api/v1/comment/{id}/reply/{replyId}** (DELETE): DELETE REPLY
+- **/api/v1/product/category/all** (GET): GET ALL CATEGORIES
+- **/api/v1/product/category/featured** (GET): GET FEATURED CATEGORIES
+- **/api/v1/product/category** (POST): CREATE CATEGORY
+- **/api/v1/product/category/[id]** (POST): CREATE SUBCATEGORY
+- **/api/v1/product/category/{id}** (DELETE): DELETE CATEGORY
+- **/api/v1/product/category/{id}** (GET): GET CATEGORY BY ID
+- **/api/v1/product/category/gender** (POST): GET CATEGORY BY GENDER
+- **/api/v1/cart** (GET): GET CART
+- **/api/v1/cart** (PUT): UPDATE CART ITEM QUANTITY
+- **/api/v1/cart** (POST): ADD CART ITEM
+- **/api/v1/cart** (DELETE): DELETE CART ITEM
+- **/api/v1/cart/metrics** (GET): GET CART METRICS
+- **/api/v1/cart/reset** (DELETE): RESET CART
+- **/api/v1/feed** (POST): GET FEED
+- **/api/v1/feed/v2** (POST): GET FEED V2
+- **/api/v1/account/address** (GET): GET USER ADDRESSES
+- **/api/v1/account/address** (POST): CREATE USER ADDRESS
+- **/api/v1/account/address** (PUT): EDIT USER ADDRESS
+- **/api/v1/account/address** (DELETE): DELETE USER ADDRESS
+- **/api/v1/account/payment_method** (GET): GET USER PAYMENT METHOD
+- **/api/v1/account/payment_method** (PUT): UPDATE USER ACTIVE PAYMENT METHOD
+- **/api/v1/account/balance** (GET): GET ACCOUNT BALANCE
+- **/api/v1/account/movements** (GET): GET ACCOUNT MOVEMENTS
+- **/api/v1/account/withdraw** (POST): WITHDRAW ACCOUNT BALANCE
+- **/api/v1/order** (GET): GET ORDER
+- **/api/v1/order** (POST): CREATE ORDER
+- **/api/v1/order/existing** (POST): EXPIRE EXISTING ORDER
+- **/api/v1/order/purchases** (GET): GET PURCHASES
+- **/api/v1/order/sales** (GET): GET SALES
+- **/api/v1/order/sales/{id}** (GET): GET SALE
+- **/api/v1/order/paymentRes** (GET): GET PAYMENT MP
+- **/api/v1/order/{id}** (GET): GET ORDER BY ID
+- **/api/v1/order/{id}/step** (PUT): UPDATE ORDER CHECKOUT STEP
+- **/api/v1/order/{id}/shipment-method** (PUT): UPDATE ORDER SHIPMENT METHOD
+- **/api/v1/order/shipment-type** (PUT): UPDATE ORDER SHIPMENT TYPE
+- **/api/v1/order/{id}/payment** (POST): CREATE ORDER PAYMENT
+- **/api/v1/order/{id}/preference** (POST): CREATE PAYMENT PREFERENCE
+- **/api/v1/order/{id}/mark-paid** (POST): MARK ORDER AS PAID (ONLY FOR ADMIN)
+- **/api/v1/order/quote** (POST): GET ZIPPIN QUOTE
+- **/api/v1/order/{fulfillmentId}/shipment** (POST): Create Shipment
+- **/api/v1/order/label** (POST): Get Shipment Label
+- **/api/v1/order/return** (POST): CREATE RETURN
+- **/api/v1/order/collectEarnings** (POST): COLLECT EARNINGS
+- **/api/v1/order/fulfillment_order/{id}/status** (PUT): UPDATE FULFILLMENT ORDER STATUS
+- **/api/v1/order/fulfillment_order/{id}/shipment** (PUT): GENERATE ORDER SHIPMENT
+- **/api/v1/order/test-mp-items** (POST): TEST MP ORDER ITEMS
+- **/api/v1/boutique** (GET): GET BOUTIQUES
+- **/api/v1/boutique/top** (GET): GET TOP BOUTIQUES
+- **/api/v1/boutique/woocommerce** (POST): SET ACCESS TOKEN WOOCOMMERCE
+- **/api/v1/boutique/style** (POST): ADD STYLE TO BOUTIQUE
+- **/api/v1/boutique/tiendanube/webhooks** (POST): POST WEBHOOKS TIENDANUBE
+- **/api/v1/boutique/checkBoutiqueCredentials** (GET): CHECK BOUTIQUE CREDENTIALS
+- **/api/v1/boutique/checkAllBoutiqueCredentials** (GET): CHECK ALL BOUTIQUE CREDENTIALS
+- **/api/v1/boutique/setInactive** (POST): SET BOUTIQUE INACTIVE
+- **/api/v1/boutique/resyncCategories** (POST): RESYNC CATEGORIES
+- **/api/v1/tiendanube/app/resumed** (POST): APP RESUMED
+- **/api/v1/tiendanube/app/suspended** (POST): APP SUSPENDED
+- **/api/v1/tiendanube/app/uninstalled** (POST): APP UNINSTALLED
+- **/api/v1/tiendanube/install** (GET): INSTALL
+- **/api/v1/tiendanube/order/cancelled** (POST): ORDER CANCEL
+- **/api/v1/tiendanube/order/packed** (POST): ORDER PACKED
+- **/api/v1/tiendanube/product/created** (POST): PRODUCT CREATED
+- **/api/v1/tiendanube/product/updated** (POST): PRODUCT UPDATED
+- **/api/v1/tiendanube/product/deleted** (POST): PRODUCT DELETED
+- **/api/v1/tiendanube/resync** (POST): RESYNC BOUTIQUE
+- **/api/v1/zippin/status** (POST): ZIPPIN STATUS
+- **/api/v1/epick/status** (POST): EPICK STATUS
+- **/api/v1/woocommerce/{wooid}/product/created** (POST): PRODUCT CREATED
+- **/api/v1/woocommerce/{wooid}/product/updated** (POST): PRODUCT UPDATED
+- **/api/v1/woocommerce/{wooid}/product/deleted** (POST): PRODUCT DELETED
+- **/api/v1/woocommerce/fix** (POST): Fix WOO
+- **/api/v1/shopify/verify/{id}** (GET): VERIFY INSTALL
+- **/api/v1/shopify/install** (GET): INSTALL
+- **/api/v1/shopify/product/created** (POST): PRODUCT CREATED
+- **/api/v1/shopify/product/updated** (POST): PRODUCT UPDATED
+- **/api/v1/shopify/product/deleted** (POST): PRODUCT DELETED
+- **/api/v1/shopify/app/uninstalled** (POST): APP UNINSTALLED
+- **/api/v1/shopify/resync** (POST): SHOPIFY RESYNC
+- **/api/v1/shopify/postWebhooks** (POST): SHOPIFY POST WEBHOOKS
+- **/api/v1/webhooks/mercadopago** (POST): MERCADOPAGO WEBHOOK
+- **/api/v1/grid/products** (GET): GET GRID PRODUCTS
+- **/api/v1/grid/product** (GET): GET GRID PRODUCT
+- **/api/v1/grid/product/created** (POST): GRID PRODUCT CREATED
+- **/api/v1/grid/product/updated** (POST): GRID PRODUCT UPDATED
+- **/api/v1/grid/product/deleted** (POST): GRID PRODUCT DELETED
+- **/api/v1/grid/setToken** (POST): SET ACCESS TOKEN GRID
+- **/api/v1/epick/activate** (POST): ACTIVATE EPICK
+- **/api/v1/resource** (POST): CREATE RESOURCE
+- **/api/v1/push-notifications** (POST): GET PUSH NOTIFICATIONS
+- **/api/v1/notifications/read** (GET): MARK ALL NOTIFICATIONS AS READ
+- **/api/v1/notifications/topics** (GET): GET TOPICS
+- **/api/v1/notifications/preferences** (GET): GET NOTIFICATIONS PREFERENCES
+- **/api/v1/notifications/preferences** (PUT): SET NOTIFICATIONS PREFERENCES
+- **/api/v1/notifications/create** (POST): CREATE NOTIFICATION
+- **/api/v1/notifications/email/test** (GET): SEND EMAIL NOTIFICATION
+- **/api/v1/notifications/notifyusers** (POST): NOTIFY MATCHING USERS
+- **/api/v1/scheduler/execute** (POST): EXECUTE A PREVIOUSLY SCHEDULED JOB
+- **/api/v1/payments/accounts** (GET): GET ACCOUNTS
+- **/api/v1/payments/accounts/{account_id}/movements** (GET): GET ACCOUNT MOVEMENTS
+- **/api/v1/payments/validate/alias** (POST): VALIDATE ALIAS
+- **/api/v1/payments/validate/cbu** (POST): VALIDATE CBU
+- **/api/v1/payments/transaction/{id}** (GET): GET TRANSACTION
+- **/api/v1/search/reindex** (POST): TEMPORARY FOR THE INTEGRATION> DO NOT USE
+- **/api/v1/search/index** (POST): UPDATE INDEX BY ID
+- **/api/v1/search/reIndexByUserId** (POST): UPDATE INDEX BY USER ID
+- **/api/v1/search/federated** (POST): FEDERATED SEARCH WITH PRODUCTS (MARKETPLACE/BOUTIQUE), USERS
+- **/api/v1/search/products** (POST): PRODUCT SEARCH
+- **/api/v1/search/users** (POST): USERS SEARCH
+- **/api/v1/suggested/products** (POST): GET SUGGESTED PRODUCTS
+- **/api/v1/search/brands** (POST): GET BRANDS
+- **/api/v1/shipping/locations** (POST): GET SHIPPING LOCATIONS
+- **/api/v1/shipping/dropoff_locations** (POST): GET SHIPPING LOCATIONS BY SHIPMENT ID
+- **/api/v1/shipping/confirm-pickup** (POST): CONFIRM ORDER FOR PICKUP
+- **/api/v1/shipping/{shipment_id}/download** (GET): DOWNLOAD SHIPPING INSTRUCTIONS
+- **/api/v1/image** (POST): GET S3 PRE SIGNED URL
+- **/api/v1/app/check-version** (POST): CHECK APP VERSION
 
-## Notes for running on Vercel
+## Getting Started
 
-- Requires a Redis attached to the project under `process.env.REDIS_URL`
-- Make sure you have [Fluid compute](https://vercel.com/docs/functions/fluid-compute) enabled for efficient execution
-- After enabling Fluid compute, open `vercel.json` and adjust max duration to 800 if you using a Vercel Pro or Enterprise account
-- [Deploy the MCP template](https://vercel.com/templates/other/model-context-protocol-mcp-with-vercel-functions)
+1. Clone this repository
+2. Install dependencies: `npm install`
+3. Set up your environment variables (see `.env.example`)
+4. Run the development server: `npm run dev`
 
-## Local dev
+## MCP Server
 
-- Run `vercel dev` for local development
-- Alternatively, integrate the system into the server framework of your choice.
+The MCP server is available at `/api/mcp` and provides 225 tools based on the OpenAPI specification.
 
-## Sample Client
+## Deploy on Vercel
 
-`script/test-client.mjs` contains a sample client to try invocations.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Ffrancisco-zx%2Fmcp-server-1751127248269)
 
-```sh
-node scripts/test-client.mjs https://mcp-on-vercel.vercel.app
-```
+## Generated by OAS2MCP
 
+This repository was generated using [OAS2MCP](https://v0-oas2mcp.vercel.app) - Transform OpenAPI specifications into Model Context Protocol servers.
