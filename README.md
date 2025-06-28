@@ -2,6 +2,8 @@
 
 A Model Context Protocol server generated from OpenAPI specification.
 
+**Version:** 1.0.0
+
 ## Available Tools
 
 - **/api/v1/register** (POST): REGISTER
@@ -240,6 +242,12 @@ A Model Context Protocol server generated from OpenAPI specification.
 ## MCP Server
 
 The MCP server is available at `/api/mcp` and provides 225 tools based on the OpenAPI specification.
+
+### API Information
+
+- **Title:** blk api
+- **Version:** 1.0.0
+- **Description:** No description provided
 
 ## Deploy on Vercel
 
